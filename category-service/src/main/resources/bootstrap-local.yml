@@ -1,9 +1,6 @@
 spring:
   application:
     name: category-service
-  profiles:
-    active:
-    - local,docker
   cloud:
     config:
       discovery:
@@ -30,7 +27,7 @@ management:
 eureka:
   client:
     service-url:
-      defaultZone: http://eureka-server:8761/eureka
+      defaultZone: http://localhost:8761/eureka
     registryFetchIntervalSeconds: 20
     eureka-connection-idle-timeout-seconds: 10
     eureka-server-connect-timeout-seconds: 30

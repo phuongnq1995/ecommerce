@@ -1,0 +1,21 @@
+spring:
+  application:
+    name: config-server
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/phuongnq1995/ecommerce-config-server
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+    registryFetchIntervalSeconds: 20
+    eureka-connection-idle-timeout-seconds: 10
+    eureka-server-connect-timeout-seconds: 30
+    healthcheck:
+      enabled: true
+
+server:
+  port: 8888

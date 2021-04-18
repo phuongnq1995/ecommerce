@@ -1,20 +1,13 @@
 ##ECOMMERCE PROJECT NOTE
 
 ##How to build microservice project:
-## step1 - Pulling redis image from docker hub
-docker pull redis
+## step1 - Maven clean install
 
-## step2 - Running the container
-docker run -d -p 6379:6379 --name my-redis redis
+mvn -s C:\spring-cloud\apache-maven-3.8.1\conf\settings.xml clean install -Dmaven.test.skip=true
 
-Run config-server first
+##Build docker compose in root project
 
-##Build clean install in root project
-
-Run eureka-server
-Run product-service
-...
-Run gateway-server
+docker-compose up
 
 ##How to mapping service uri to Gateway-server
 http://localhost:8765/{application-name}/uri
