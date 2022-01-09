@@ -58,8 +58,8 @@ cloud:
   aws:
     region: ap-southeast-1
     credentials:
-      access-key: AKIAVMP7LZXQD7IO2OY4
-      secret-key: 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
+      access-key: AKIAVMP7LZXQHRUDLXZ2
+      secret-key: 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
 
 application:
   localStoragePath: C:\spring-cloud\ecommerce\storage
