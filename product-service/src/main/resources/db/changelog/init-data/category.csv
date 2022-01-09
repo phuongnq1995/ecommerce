@@ -1,0 +1,18 @@
+id;name;code;description;parent_id
+1a0ebdc9-81aa-46ea-b4e0-622f73804cd0;Electronics;PT;'';null
+762fc06f-cc33-4d17-b81f-30eb66173991;Computers;EL;'';null
+862d45d9-310c-48a3-ad2d-19eef19c9fe2;Start Home;AC;'';null
+f6ff0f68-44a0-4eab-b74b-7af37aa3c711;Art & Crafts;LA;'';null
+11016cf1-8ce9-49ad-b97d-f16221e888bb;Accessories & Supplies;AP;'';1a0ebdc9-81aa-46ea-b4e0-622f73804cd0
+72ca12f6-7c2b-409c-9eab-3a52ab0f351e;Headphones;HP;'';1a0ebdc9-81aa-46ea-b4e0-622f73804cd0
+a9817aa8-304b-4d13-ba9d-e2452031750e;Camera& Photo;LA;'';1a0ebdc9-81aa-46ea-b4e0-622f73804cd0
+492bd24d-0127-4e04-a1ea-1cf75a87a4ad;Monitors;MN;'';762fc06f-cc33-4d17-b81f-30eb66173991
+bf556496-8202-41ef-aac1-ef18ad7ab0b9;Data Storage;DS;'';762fc06f-cc33-4d17-b81f-30eb66173991
+81618572-80a6-4271-8fc7-718aacf24f0f;Computer Component;CC;'';762fc06f-cc33-4d17-b81f-30eb66173991
+5909b76c-a0ba-4602-8c69-5c9d0ef3287e;Smart Home Lighting;SHL;'';862d45d9-310c-48a3-ad2d-19eef19c9fe2
+41abd973-0060-48ab-aa41-895f09c47090;Home Entertainment;HE;'';862d45d9-310c-48a3-ad2d-19eef19c9fe2
+9d126932-d35b-4af8-9a7e-0cc1f576b093;Heating and Cooling;HC;'';862d45d9-310c-48a3-ad2d-19eef19c9fe2
+6ae5b621-e64e-4e0a-a398-5415035106d1;Painting, Drawing & Art Supplies;PDA;'';6ff0f68-44a0-4eab-b74b-7af37aa3c711
+ad0579db-b05b-41f3-ad68-26d5eafce159;Beading & Jewelry Making;BJ;'';6ff0f68-44a0-4eab-b74b-7af37aa3c711
+57e8d264-fc07-444d-8b56-7723ebc16864;Crafting;CC;'';6ff0f68-44a0-4eab-b74b-7af37aa3c711
+

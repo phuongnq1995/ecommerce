@@ -6,7 +6,7 @@ spring:
     name: product-service
   profiles:
     active:
-    - local,docker
+      - local,docker
   autoconfigure:
     exclude:
       - org.springframework.cloud.aws.autoconfigure.context.ContextInstanceDataAutoConfiguration
@@ -27,7 +27,7 @@ spring:
   datasource:
     platform: postgres
     driver-class-name: org.postgresql.Driver
-    url: jdbc:postgresql://database:5432/product-service
+    url: jdbc:postgresql://localhost:5432/product-service
     username: postgres
     password: 123456
   jpa:
@@ -46,13 +46,13 @@ spring:
       max-file-size: 20MB
       max-request-size: 25MB
   redis:
-    host: redis
+    host: localhost
     post: 6379
   elasticsearch:
     rest:
       connection-timeout: 30
       uris:
-        - elasticsearch:9200
+        - localhost:9200
 
 cloud:
   aws:
@@ -79,7 +79,7 @@ management:
 eureka:
   client:
     service-url:
-      defaultZone: http://eureka-server:8761/eureka
+      defaultZone: http://localhost:8761/eureka
     registryFetchIntervalSeconds: 20
     eureka-connection-idle-timeout-seconds: 10
     eureka-server-connect-timeout-seconds: 30

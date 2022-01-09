@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+	xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.6.xsd">
+
+	<property name="uuid_type" value="uuid" dbms="postgresql"/>
+	<property name="uuid_function" value="uuid_generate_v4()" dbms="postgresql"/>
+
+	<!-- Added the entity Price. -->
+	<changeSet id="202131120004-1" author="postgres">
+		<createTable tableName="price">
+			<column name="id" type="${uuid_type}" defaultValueComputed="${uuid_function}">
+				<constraints primaryKey="true" nullable="false" />
+			</column>
+			<column name="product_id" type="${uuid_type}">
+				<constraints nullable="false" />
+			</column>
+			<column name="note" type="varchar(255)">
+				<constraints nullable="true" />
+			</column>
+			<column name="price" type="numeric">
+				<constraints nullable="false" />
+			</column>
+			<column name="current" type="boolean" >
+				<constraints nullable="true" />
+			</column>
+		</createTable>
+	</changeSet>
+
+	<!-- Load data into the entity Price. -->
+	<changeSet id="202131120004-1-data" author="postgres">
+		<loadData file="db/changelog/init-data/price.csv" separator=";" tableName="price" usePreparedStatements="true">
+			<column name="id" type="${uuid_type}" />
+			<column name="product_id" type="${uuid_type}" />
+			<column name="note" type="string" />
+			<column name="price" type="numeric" />
+			<column name="current" type="boolean" />
+		</loadData>
+	</changeSet>
+</databaseChangeLog>

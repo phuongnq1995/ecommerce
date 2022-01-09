@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+	xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.6.xsd">
+
+	<property name="uuid_type" value="uuid" dbms="postgresql"/>
+	<property name="uuid_function" value="uuid_generate_v4()" dbms="postgresql"/>
+
+	<!-- Added the entity Product Image. -->
+	<changeSet id="202131120003-1" author="postgres">
+		<createTable tableName="product_image">
+			<column name="product_id" type="${uuid_type}">
+				<constraints nullable="false" />
+			</column>
+			<column name="image_id" type="${uuid_type}">
+				<constraints nullable="false" />
+			</column>
+			<column name="description" type="varchar(255)">
+				<constraints nullable="true" />
+			</column>
+			<column name="main" type="boolean" >
+				<constraints nullable="true" />
+			</column>
+		</createTable>
+	</changeSet>
+
+	<!-- Load data into the entity Product Image. -->
+	<changeSet id="202131120003-1-data" author="postgres">
+		<loadData file="db/changelog/init-data/product_image.csv" separator=";" tableName="product_image" usePreparedStatements="true">
+			<column name="product_id" type="${uuid_type}" />
+			<column name="image_id" type="${uuid_type}" />
+			<column name="main" type="boolean" />
+		</loadData>
+	</changeSet>
+</databaseChangeLog>

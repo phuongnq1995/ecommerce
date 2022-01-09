@@ -1,0 +1,16 @@
+databaseChangeLog:
+  - property:
+      name: uuid_type
+      value: uuid
+  - include:
+      file: db/changelog/table/202131120000_added_uuid_generator.xml
+  - include:
+      file: db/changelog/table/202131120000_added_entity_Category.xml
+  - include:
+      file: db/changelog/table/202131120001_added_entity_EcommerceImage.xml
+  - include:
+      file: db/changelog/table/202131120002_added_entity_Product.xml
+  - include:
+      file: db/changelog/table/202131120003_added_entity_ProductImage.xml
+  - include:
+      file: db/changelog/table/202131120004_added_entity_Price.xml
