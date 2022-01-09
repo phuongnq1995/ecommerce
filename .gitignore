@@ -89,5 +89,33 @@ crashlytics-build.properties
  Jrebel:
 rebel.xml
 *rebel.xml
-<<<<<<< HEAD
 */rebel.xml
+
+######################
+# Project Specific
+######################
+/src/main/webapp/content/css/main.css
+/target/classes/static/**
+/src/test/javascript/coverage/
+
+######################
+# Node
+######################
+/ecommerce-web-apps/node/
+/ecommerce-web-apps/node_tmp/
+/ecommerce-web-apps/node_modules/
+/ecommerce-web-apps/npm-debug.log.*
+/.awcache/*
+/.cache-loader/*
+/node/
+node_tmp/
+node_modules/
+npm-debug.log.*
+/.awcache/*
+/.cache-loader/*
+
+
+######################
+# SASS
+######################
+.sass-cache/
