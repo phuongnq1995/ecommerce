@@ -4,18 +4,35 @@ services:
   database:
     image: postgres
     container_name: database
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
     ports:
-      - "54320:5432"
+      - "5432:5432"
     environment:
       - POSTGRES_PASSWORD=123456
       - POSTGRES_USER=postgres
-      - POSTGRES_DB=category
+      - POSTGRES_DB=product-service
+      - PGDATA=/var/lib/postgresql/data/pgdata
 
   redis:
       image: redis
       container_name: redis
       ports:
         - "6379:6379"
+
+  search-service:
+    image: docker.elastic.co/elasticsearch/elasticsearch:7.6.2
+    container_name: search-service
+    volumes:
+      - /var/db/data/elasticsearch:/Users/docker_volumes/elasticsearch_bkp
+    ports:
+      - 9200:9200
+      - 9300:9300
+    expose:
+      - 9200
+    environment:
+      - discovery.type=single-node
+      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
 
   eureka-server:
     container_name: eureka-server
@@ -41,9 +58,9 @@ services:
     depends_on:
       - eureka-server
 
-  product-service:
-    container_name: product-service
-    build: ./product-service
+  store-service:
+    container_name: store-service
+    build: ./store-service
     ports:
       - "8090:8090"
     links:
@@ -53,13 +70,13 @@ services:
       - eureka-server
       - config-server
 
-  category-service:
-    container_name: category-service
-    build: ./category-service
+  product-service:
+    container_name: product-service
+    build: ./product-service
     ports:
       - "8081:8081"
     environment: # Pass environment variables to the service
-      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/category
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/product-service
       SPRING_DATASOURCE_USERNAME: postgres
       SPRING_DATASOURCE_PASSWORD: 123456
     links:
@@ -68,6 +85,7 @@ services:
     restart: on-failure
     depends_on:
       - database
+      - search-service
       - eureka-server
       - config-server
 
@@ -83,3 +101,8 @@ services:
       - eureka-server
       - product-service
 
+volumes:
+  postgres_data:
+    driver: local
+  esdata1:
+    driver: local
