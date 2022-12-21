@@ -1,0 +1,5 @@
+spring:
+  data:
+    elasticsearch:      client:        reactive:          endpoints:          - http://localhost:9200/
+          use-ssl: true
+          socket-timeout: 20s      repositories:        enabled: true

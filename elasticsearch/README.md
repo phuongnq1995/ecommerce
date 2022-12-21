@@ -1,0 +1,1 @@
+#ECOMMERCE Elastic search module NOTE#download elasticsearch-7.8.1 run elasticsearch.bat
